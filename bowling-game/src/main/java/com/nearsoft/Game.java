@@ -4,21 +4,19 @@ public class Game {
 	private int _rolls[] = new int[21];
 	private int _currentRoll = 0;
 
-	public void roll(int pins) { // tentado a calcular el score, a pesar de que
-									// no sea su funcion
+	public void roll(int pins) {
 		_rolls[_currentRoll++] = pins;
 	}
 
-	public int score() { // No calcula el score a pesar de que el nombre lo
-							// sugiere
+	public int score() {
 		int score = 0;
 		int frameIndex = 0;
 		for (int frame = 0; frame < 10; frame++) {
-			if (isStrike(frameIndex)){ //hizo strike
+			if (isStrike(frameIndex)){
 				score += 10 + strikeBonus(frameIndex);
 				frameIndex++;
 			}
-			else if(isSpare(frameIndex)) { //hizo spare
+			else if(isSpare(frameIndex)) {
 				score += 10 + spareBouns(frameIndex);
 				frameIndex += 2;
 			} else {
